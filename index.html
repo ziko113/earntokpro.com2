@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>EarnTokPro Trading Platform</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:#0b0f1a;
+color:white;
+}
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 30px;
+background:#020617;
+position:sticky;
+top:0;
+z-index:999;
+}
+
+.logo{
+font-size:22px;
+font-weight:bold;
+color:#22c55e;
+}
+
+nav a{
+color:white;
+margin-left:20px;
+text-decoration:none;
+}
+
+.hero{
+text-align:center;
+padding:100px 20px;
+background:linear-gradient(120deg,#020617,#1e293b);
+}
+
+.section{
+padding:60px 20px;
+text-align:center;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+margin-top:30px;
+}
+
+.card{
+background:#111827;
+padding:20px;
+border-radius:10px;
+}
+
+.btn{
+background:linear-gradient(90deg,#22c55e,#06b6d4);
+padding:12px 30px;
+border-radius:8px;
+color:white;
+text-decoration:none;
+font-weight:bold;
+border:none;
+}
+
+.popup{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
+justify-content:center;
+align-items:center;
+}
+
+.popupContent{
+background:#111827;
+padding:30px;
+border-radius:10px;
+text-align:center;
+}
+
+.notify{
+position:fixed;
+right:20px;
+background:#111827;
+padding:10px;
+border-radius:8px;
+display:none;
+}
+
+.timerBox{
+background:#111827;
+padding:40px;
+border-radius:15px;
+max-width:500px;
+margin:auto;
+box-shadow:0 0 20px rgba(0,0,0,0.6);
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<header>
+
+<div class="logo">EarnTokPro</div>
+
+<nav>
+
+<a href="#home">Home</a>
+<a href="#markets">Markets</a>
+<a href="#signals">Signals</a>
+<a href="#education">Education</a>
+<a href="#support">Support</a>
+
+</nav>
+
+</header>
+
+
+<section id="home" class="hero">
+
+<h1>Trade Crypto & Global Markets</h1>
+
+<p>Advanced trading tools with real-time market data</p>
+
+<br>
+
+<button onclick="openPopup()" class="btn">
+Create Trading ID
+</button>
+
+<br><br>
+
+<a class="btn"
+href="https://track.kingfin.com/cpa?offer_id=25&affiliate_id=2549014&subid_1=your_subid">
+
+Start Trading Now
+
+</a>
+
+</section>
+
+
+<!-- ANIMATION -->
+
+<section class="section">
+
+<h2>Real-Time Market Analysis</h2>
+
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+<lottie-player
+src="https://assets1.lottiefiles.com/packages/lf20_3rqwsqnj.json"
+background="transparent"
+speed="1"
+style="width:300px;height:300px;margin:auto"
+loop
+autoplay>
+</lottie-player>
+
+</section>
+
+
+<section class="section">
+
+<h2>Advanced Crypto Trading</h2>
+
+<lottie-player
+src="https://assets10.lottiefiles.com/packages/lf20_vybwn7df.json"
+background="transparent"
+speed="1"
+style="width:300px;height:300px;margin:auto"
+loop
+autoplay>
+</lottie-player>
+
+</section>
+
+
+<!-- TRADING CHART -->
+
+<section class="section">
+
+<h2>Live Trading Chart</h2>
+
+<div id="chart"></div>
+
+<script src="https://s3.tradingview.com/tv.js"></script>
+
+<script>
+
+new TradingView.widget({
+container_id:"chart",
+width:"100%",
+height:500,
+symbol:"BINANCE:BTCUSDT",
+interval:"15",
+theme:"dark"
+});
+
+</script>
+
+</section>
+
+
+<!-- BEAUTIFUL TIMER -->
+
+<section class="section">
+
+<h2>Next Trading Signal</h2>
+
+<div class="timerBox">
+
+<lottie-player
+src="https://assets10.lottiefiles.com/packages/lf20_jcikwtux.json"
+background="transparent"
+speed="1"
+style="width:150px;height:150px;margin:auto"
+loop
+autoplay>
+</lottie-player>
+
+<h1 id="countdown" style="font-size:50px;color:#22c55e">
+
+00:03:00
+
+</h1>
+
+<p>Hours : Minutes : Seconds</p>
+
+</div>
+
+</section>
+
+
+<!-- MARKET -->
+
+<section id="markets" class="section">
+
+<h2>Crypto Market (100+ Coins)</h2>
+
+<iframe
+src="https://widget.coinlib.io/widget?type=full_v2&theme=dark"
+width="100%"
+height="600"></iframe>
+
+</section>
+
+
+<!-- SIGNALS -->
+
+<section id="signals" class="section">
+
+<h2>Live Trading Signals</h2>
+
+<div class="grid">
+
+<div class="card">BTC BUY Target 68000</div>
+<div class="card">ETH SELL Target 3200</div>
+<div class="card">SOL BUY Target 170</div>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<h2>AI Signal Generator</h2>
+
+<div class="card" id="signalBox">
+Loading signal...
+</div>
+
+</section>
+
+
+<section class="section">
+
+<h2>Crypto Fear & Greed Index</h2>
+
+<img
+src="https://alternative.me/crypto/fear-and-greed-index.png"
+style="width:100%;max-width:500px">
+
+</section>
+
+
+<section class="section">
+
+<h2>Forex Economic Calendar</h2>
+
+<iframe
+src="https://sslecal2.forexprostools.com/"
+width="100%"
+height="600"></iframe>
+
+</section>
+
+
+<section id="education" class="section">
+
+<h2>Trading Education</h2>
+
+<iframe
+width="560"
+height="315"
+src="https://www.youtube.com/embed/SSo_EIwHSd4"></iframe>
+
+</section>
+
+
+<section class="section">
+
+<h2>Profit Calculator</h2>
+
+<input id="amount" placeholder="Investment $" style="padding:10px">
+<input id="percent" placeholder="Profit %" style="padding:10px">
+
+<br><br>
+
+<button class="btn" onclick="calcProfit()">
+Calculate
+</button>
+
+<h3 id="result"></h3>
+
+</section>
+
+
+<section class="section">
+
+<h2>Join Telegram</h2>
+
+<a class="btn" href="https://t.me/pro_trader_91">
+
+Join Channel
+
+</a>
+
+</section>
+
+
+<section id="support" class="section">
+
+<h2>Support Center</h2>
+
+<div class="grid">
+
+<div class="card">
+<a class="btn" href="https://t.me/pro_trader_91">
+Telegram Support
+</a>
+</div>
+
+<div class="card">
+<a class="btn" href="mailto:support@earntokpro.com">
+Email Support
+</a>
+</div>
+
+</div>
+
+</section>
+
+
+<div class="popup" id="popupBox">
+
+<div class="popupContent">
+
+<h2>Create Trading Account</h2>
+
+<a class="btn"
+href="https://track.kingfin.com/cpa?offer_id=25&affiliate_id=2549014&subid_1=your_subid">
+
+Create ID
+
+</a>
+
+<br><br>
+
+<button onclick="closePopup()">Close</button>
+
+</div>
+
+</div>
+
+
+<button id="topBtn" onclick="scrollToHome()">⬆ Home</button>
+
+
+<style>
+
+#topBtn{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#22c55e;
+color:white;
+border:none;
+padding:12px 18px;
+border-radius:8px;
+display:none;
+}
+
+</style>
+
+
+<script>
+
+function openPopup(){popupBox.style.display="flex";}
+function closePopup(){popupBox.style.display="none";}
+
+function scrollToHome(){
+window.scrollTo({top:0,behavior:"smooth"});
+}
+
+window.addEventListener("scroll",function(){
+if(document.documentElement.scrollTop>400){
+topBtn.style.display="block";
+}else{
+topBtn.style.display="none";
+}
+});
+
+
+function calcProfit(){
+
+let a=document.getElementById("amount").value;
+let p=document.getElementById("percent").value;
+
+result.innerText="Profit: $"+(a*p/100);
+
+}
+
+
+let signals=[
+"BTC BUY Target 68000",
+"BTC SELL Target 64000",
+"ETH BUY Target 3500",
+"ETH SELL Target 3000"
+];
+
+function signal(){
+signalBox.innerText=signals[Math.floor(Math.random()*signals.length)];
+}
+
+signal();
+setInterval(signal,8000);
+
+
+/* BEAUTIFUL TIMER */
+
+let totalTime=180;
+
+function updateTimer(){
+
+let h=Math.floor(totalTime/3600);
+let m=Math.floor((totalTime%3600)/60);
+let s=totalTime%60;
+
+if(h<10)h="0"+h;
+if(m<10)m="0"+m;
+if(s<10)s="0"+s;
+
+countdown.innerText=h+":"+m+":"+s;
+
+totalTime--;
+
+if(totalTime<0){
+totalTime=180;
+}
+
+}
+
+setInterval(updateTimer,1000);
+
+
+function show(el){
+el.style.display="block";
+setTimeout(()=>{el.style.display="none"},4000);
+}
+
+</script>
+
+</body>
+</html>
